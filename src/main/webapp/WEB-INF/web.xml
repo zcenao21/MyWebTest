@@ -30,6 +30,10 @@
     <servlet-name>numberImg</servlet-name>
     <servlet-class>com.will.ImgNumberServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>referer</servlet-name>
+    <servlet-class>com.will.ReferServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>counter</servlet-name>
@@ -54,6 +58,10 @@
   <servlet-mapping>
     <servlet-name>cookie</servlet-name>
     <url-pattern>/cookie</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>referer</servlet-name>
+    <url-pattern>/referer</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>numberImg</servlet-name>

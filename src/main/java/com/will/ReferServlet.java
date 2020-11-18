@@ -12,7 +12,13 @@ public class ReferServlet extends HttpServlet {
         Logger logger=Logger.getLogger(ReferServlet.class);
         logger.info("Refer Servlet called!");
 
-        response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
-        response.setHeader("Location","/counter");
+        String referer=request.getHeader("Referer");
+        if(referer==null||!referer.contains("localhost:8080/counter")){
+            response.sendRedirect("/counter");
+            return;
+        }
+        //能执行下面的语句，说明是从我的首页点击进来的，那没问题，照常显示
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write("路飞做了XXXXxxxxxxxxxxxxxxxx");
     }
 }

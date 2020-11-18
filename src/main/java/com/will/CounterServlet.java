@@ -29,6 +29,7 @@ public class CounterServlet extends HttpServlet {
         out.println("<body>");
         out.println("<h1>欢迎光临本站，"+context.getInitParameter("name")+"。 您是第 "
         +counter.getCount()+" 位访问者。</h1>");
+        out.println("<a href=\"/referer\">路飞最新资源</a>");
         out.println("</body></html>");
 
         counter.addOne();
