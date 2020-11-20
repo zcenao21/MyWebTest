@@ -20,7 +20,7 @@
   </servlet>
   <servlet>
     <servlet-name>cookie</servlet-name>
-    <servlet-class>com.will.CookieServlet</servlet-class>
+    <servlet-class>com.will.CookieInspectServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>compact</servlet-name>
