@@ -38,10 +38,26 @@
     <servlet-name>session</servlet-name>
     <servlet-class>com.will.SessionServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>session-pass</servlet-name>
+    <servlet-class>com.will.SessionPassServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>session-pass-result</servlet-name>
+    <servlet-class>com.will.SessionPassResultServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
+    <servlet-name>session-pass</servlet-name>
+    <url-pattern>/session-pass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>session-pass-result</servlet-name>
+    <url-pattern>/session-pass-result</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>session</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/session</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>counter</servlet-name>
