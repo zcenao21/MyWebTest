@@ -6,9 +6,9 @@ import java.util.List;
 public class BookStore {
     private static List<Book> list=new ArrayList<>();
     static {
-        list.add(new Book("小可爱在哪里"));
-        list.add(new Book("小可爱在这里"));
-        list.add(new Book("小可爱来了！"));
+        list.add(new Book("我是谁"));
+        list.add(new Book("我从哪来"));
+        list.add(new Book("我要到哪里去"));
     }
     public static Book find(String bookName){
         for(Book book:list){

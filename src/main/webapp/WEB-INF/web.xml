@@ -44,9 +44,21 @@
   </servlet>
   <servlet>
     <servlet-name>session-pass-result</servlet-name>
-    <servlet-class>com.will.SessionPassResultServlet</servlet-class>
+    <servlet-class>com.will.SessionPassShowServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>repeat</servlet-name>
+    <servlet-class>com.will.RepeatServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>process-repeat</servlet-name>
+    <servlet-class>com.will.ProcessRepeatServlet</servlet-class>
   </servlet>
 
+  <servlet-mapping>
+    <servlet-name>process-repeat</servlet-name>
+    <url-pattern>/process-repeat</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>session-pass</servlet-name>
     <url-pattern>/session-pass</url-pattern>
@@ -91,6 +103,10 @@
     <servlet-name>numberImg</servlet-name>
     <url-pattern>/numberImg</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>repeat</servlet-name>
+    <url-pattern>/repeat</url-pattern>
+  </servlet-mapping>
 
   <context-param>
     <param-name>logbackDisableServletContainerInitializer</param-name>
@@ -113,7 +129,7 @@
   </listener>
 
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>repeat.html</welcome-file>
   </welcome-file-list>
 
   <jsp-config>

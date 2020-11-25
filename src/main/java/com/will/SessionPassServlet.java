@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 public class SessionPassServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response){
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session=request.getSession();
 
@@ -24,5 +24,6 @@ public class SessionPassServlet extends HttpServlet {
         session.setAttribute("bookList", bookList);
 
         String url="session-pass-result";
+        response.sendRedirect(response.encodeURL(url));
     }
 }

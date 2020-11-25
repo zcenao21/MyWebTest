@@ -15,4 +15,8 @@ public class Book {
 
     String bookName;
 
+    public String toString(){
+        return bookName;
+    }
+
 }
