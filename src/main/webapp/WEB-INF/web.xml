@@ -54,10 +54,18 @@
     <servlet-name>process-repeat</servlet-name>
     <servlet-class>com.will.ProcessRepeatServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>response-msg</servlet-name>
+    <servlet-class>com.will.ServletResponseMsg</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>process-repeat</servlet-name>
     <url-pattern>/process-repeat</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>response-msg</servlet-name>
+    <url-pattern>/response-msg</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>session-pass</servlet-name>
