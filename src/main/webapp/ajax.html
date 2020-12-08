@@ -30,8 +30,6 @@
             //得到文本框的数据
             var name = document.getElementById("username").value;
 
-            alert("name:"+name);
-
             //发送http请求，把要检测的用户名传递进去
             httpRequest.send("username="+name);
 
@@ -44,7 +42,6 @@
 
                 //再判断状态码是否为200【200是成功的】
                 if(httpRequest.status==200) {
-                alert("ok");
 
                     //得到服务端返回的文本数据
                     var text = httpRequest.responseText;
