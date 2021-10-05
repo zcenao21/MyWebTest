@@ -11,7 +11,6 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-    <!--    <aop:aspectj-autoproxy proxy-target-class="true" />-->
     <!-- xml配置事务管理 -->
     <!-- 配置c3po连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -29,21 +28,10 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-    <tx:advice id="txadvice" transaction-manager="dataSourceTransactionManager">
-        <!-- 事务操作 -->
-        <tx:attributes>
-            <tx:method name="account*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for=""
-                       timeout="-1"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <aop:config>
-        <aop:pointcut id="pointcut1" expression="execution(* com.will.spring.tx.OrdersServiceAop.* (..))"/>
-        <aop:advisor advice-ref="txadvice" pointcut-ref="pointcut1"/>
-    </aop:config>
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager" />
 
     <!-- 对象生成及属性注入 -->
-    <bean id="ordersServiceAop" class="com.will.spring.tx.OrdersServiceAop">
+    <bean id="ordersServiceAnnotation" class="com.will.spring.tx.OrdersServiceAnnotation">
         <property name="ordersDao" ref="ordersDao"></property>
     </bean>
 
