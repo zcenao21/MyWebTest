@@ -1,6 +1,7 @@
 package spring.tx;
 
 import com.will.spring.tx.OrdersService;
+import com.will.spring.tx.OrdersServiceAop;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,5 +12,17 @@ public class TransactionTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring/tx/beans.xml");
         OrdersService service = (OrdersService)context.getBean("ordersService");
         service.addAccountMoney();
+    }
+
+    @Test
+    public void testTransactionAop(){
+        try{
+            ApplicationContext context = new ClassPathXmlApplicationContext("spring/tx/beans-aop.xml");
+            OrdersServiceAop service = (OrdersServiceAop)context.getBean("ordersServiceAop");
+            service.accountMoney();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

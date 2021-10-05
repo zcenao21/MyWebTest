@@ -12,7 +12,7 @@ public class OrdersDao {
 
     // 对数据操作的方法不包含业务操作
     /**
-     * 小王少钱的方法
+     * 小马少钱的方法
      */
     public void reduceMoney() {
         String sql = "update account set salary=salary-? where username=?";
@@ -20,7 +20,7 @@ public class OrdersDao {
     }
 
     /**
-     * 小马多钱的方法
+     * 小王多钱的方法
      */
     public void addMoney() {
         String sql = "update account set salary=salary+? where username=?";
