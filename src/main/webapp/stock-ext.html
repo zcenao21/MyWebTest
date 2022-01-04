@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>stockTestExt</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        function show() {
+
+            getStock();
+
+            //每两秒就取一次数据
+            setInterval(getStock, 2000);
+
+        }
+        var httpRequest;
+        function getStock() {
+
+            //力求是最新的响应数据，如果存在httpRequest，那么将上次的httpRequest终止
+            if(httpRequest) {
+                httpRequest.abort();
+            }
+
+            httpRequest= new XMLHttpRequest();
+            httpRequest.open("GET", "Refresh", true);
+            httpRequest.onreadystatechange = callBackFunction;
+            httpRequest.send(null);
+
+        }
+
+        function callBackFunction() {
+            if(httpRequest.readyState==4) {
+                if(httpRequest.status==200) {
+
+                    //得到服务器端返回的JSON数据
+                    var text = httpRequest.responseText;
+
+                    //解析成JavaScript对象
+                    var json = eval(text);
+
+                    //遍历出每个JSON对象【也就是json的id】
+                    for(var id in json) {
+
+                        //得到每个stock对象
+                        var stock = json[id];
+
+                        //将当前的价格设置到span节点里面
+                        document.getElementById(id).innerHTML = stock.current;
+
+                        //比较当前价格和昨天开盘价格，如果大于就是红色，小于就是绿色
+                        if(stock.current>stock.yesterday) {
+                            document.getElementById(id).style.color = 'red';
+                        }else {
+                            document.getElementById(id).style.color = 'green';
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="show()">
+
+    <div>
+        <a href="#">百度：</a>
+        <span id="1"></span>
+    </div>
+    <div>
+        <a href="#">阿里巴巴：</a>
+        <span id="2"></span>
+    </div>
+    <div>
+        <a href="#">腾讯：</a>
+        <span id="3"></span>
+    </div>
+    <div>
+        <a href="#">谷歌：</a>
+        <span id="4"></span>
+    </div>
+</body>
+</html>
+

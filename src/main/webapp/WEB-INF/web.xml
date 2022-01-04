@@ -58,7 +58,16 @@
     <servlet-name>response-msg</servlet-name>
     <servlet-class>com.will.ServletResponseMsg</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Refresh</servlet-name>
+    <servlet-class>com.will.RefreshServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>Refresh</servlet-name>
+    <url-pattern>/Refresh</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>process-repeat</servlet-name>
     <url-pattern>/process-repeat</url-pattern>
