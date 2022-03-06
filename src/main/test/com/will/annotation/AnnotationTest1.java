@@ -7,8 +7,8 @@ public class AnnotationTest1 {
     @Test
     public void checkAge() throws IllegalAccessException {
         AnnotationTest ann = new AnnotationTest(1000);
-        Field[] fileds = AnnotationTest.class.getFields();
-        for(Field f: AnnotationTest.class.getFields()){
+        Field[] fileds = AnnotationTestScan.class.getFields();
+        for(Field f: AnnotationTestScan.class.getFields()){
             CheckStr c = f.getAnnotation(CheckStr.class);
             if(c!=null){
                 Object v = f.get(ann);
